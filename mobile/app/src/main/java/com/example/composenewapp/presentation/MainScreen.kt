@@ -28,7 +28,7 @@ import com.learning.features.presentation.app_navigation.MoreFeatureNavigation
 import com.learning.features.presentation.calendar.CalendarUI
 import java.time.LocalDate
 
-@RequiresApi(Build.VERSION_CODES.O)
+
 @Composable
 fun MainScreen() {
     val navigationState = rememberNavigationState(
@@ -105,7 +105,6 @@ fun AppBottomBar(
     }
 }
 
-@RequiresApi(Build.VERSION_CODES.O)
 @Preview(showBackground = true)
 @Composable
 fun MainScreenPreview() {

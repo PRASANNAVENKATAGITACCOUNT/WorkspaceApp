@@ -37,7 +37,7 @@ import org.koin.androidx.compose.koinViewModel
 import java.time.Month
 import java.time.YearMonth
 
-@RequiresApi(Build.VERSION_CODES.O)
+
 @Composable
 fun CalendarUI() {
     val calendarUIViewModel = koinViewModel<CalendarUIViewModel>()
