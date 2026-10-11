@@ -1,14 +1,10 @@
 package com.example.composenewapp.navigation
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.List
-import androidx.compose.material.icons.filled.DateRange
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.List
-import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.Star
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.painterResource
 import androidx.navigation3.runtime.NavKey
+import com.example.composenewapp.R
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -24,7 +20,7 @@ sealed interface AppRoute{
 
     }
     @Serializable
-    object AIAssistent: MainScreenRoute, NavKey{
+    object AIAssistent: AppRoute, NavKey{
 
     }
 
@@ -36,6 +32,9 @@ sealed interface MainScreenRoute : NavKey {
 
     @Serializable
     object ChatScreen: MainScreenRoute, NavKey {
+    }
+    @Serializable
+    object CallScreen: MainScreenRoute, NavKey {
     }
 
     @Serializable
@@ -51,21 +50,25 @@ sealed interface MainScreenRoute : NavKey {
 }
 
 data class BottomNavItem(
-    val icon: ImageVector,
-    val title: String
-)
+    val icon: @Composable ()-> Painter,
+    val title: String,
+    )
 
 val TOP_LEVEL_DESTINATION = mapOf<MainScreenRoute, BottomNavItem>(
     MainScreenRoute.ChatScreen to BottomNavItem(
-        icon = Icons.Default.Home,
+        icon ={ painterResource(R.drawable.chat_icon)},
         "Chat"
     ),
+    MainScreenRoute.CallScreen to BottomNavItem(
+        icon ={ painterResource(R.drawable.call_icon)},
+        "Call"
+    ),
     MainScreenRoute.Calendar to BottomNavItem(
-        icon = Icons.Filled.DateRange,
+        icon = {painterResource(R.drawable.calendar_icon)},
         "Calendar"
     ),
     MainScreenRoute.MoreScreen to BottomNavItem(
-        icon = Icons.AutoMirrored.Filled.List,
+        icon = {painterResource(R.drawable.more_icon)},
         "More"
     )
 )

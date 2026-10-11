@@ -22,9 +22,8 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "WorkspaceApp"
+rootProject.name = "mobile"
 include(":app")
 include(":features:more")
-include(":features:chat")
-include(":auth:auth-api")
 include(":auth:auth-ui")
+include(":features:chat")

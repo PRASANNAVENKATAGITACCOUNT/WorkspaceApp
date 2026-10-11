@@ -4,6 +4,7 @@ import androidx.room.Room
 import com.learning.features.data.Repository
 import com.learning.features.data.local.AppDatabase
 import com.learning.features.data.local.LocalRepository
+import com.learning.features.presentation.calendar.CalendarUIViewModel
 import com.learning.features.presentation.notes.NotesViewModel
 import com.learning.features.presentation.projects.MainProjectViewModel
 import com.learning.features.presentation.todo.ToDoViewModel
@@ -36,6 +37,9 @@ val moreFeatureDataSourceModule = module {
 
     viewModel<NotesViewModel> {
         NotesViewModel(get())
+    }
+    viewModel<CalendarUIViewModel> {
+        CalendarUIViewModel()
     }
 
 }

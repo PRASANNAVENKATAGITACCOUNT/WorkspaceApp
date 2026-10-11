@@ -1,5 +1,6 @@
 plugins {
-    alias(libs.plugins.android.application)
+   // alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
 }
 
 android {
@@ -11,12 +12,8 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.learning.auth_api"
+        // applicationId = "com.learning.auth_api"
         minSdk = 24
-        targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 

@@ -40,7 +40,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":features:chat"))
     implementation(project(":features:more"))
     implementation(project(":auth:auth-ui"))
     implementation(platform(libs.androidx.compose.bom))

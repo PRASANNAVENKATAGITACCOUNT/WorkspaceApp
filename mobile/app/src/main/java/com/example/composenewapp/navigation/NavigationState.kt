@@ -66,6 +66,7 @@ val serializerConfig = SavedStateConfiguration {
     serializersModule = SerializersModule {
         polymorphic(NavKey::class) {
             subclass(MainScreenRoute.ChatScreen::class, MainScreenRoute.ChatScreen.serializer())
+            subclass(MainScreenRoute.CallScreen::class, MainScreenRoute.CallScreen.serializer())
             subclass(MainScreenRoute.Calendar::class, MainScreenRoute.Calendar.serializer())
             subclass(MainScreenRoute.MoreScreen::class, MainScreenRoute.MoreScreen.serializer())
         }

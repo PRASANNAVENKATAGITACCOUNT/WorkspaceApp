@@ -1,5 +1,7 @@
 package com.example.composenewapp.presentation
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -11,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
@@ -22,7 +25,10 @@ import com.example.composenewapp.navigation.rememberNavigationState
 import com.example.composenewapp.navigation.toEntities
 import com.example.composenewapp.ui.theme.ComposeNewAppTheme
 import com.learning.features.presentation.app_navigation.MoreFeatureNavigation
+import com.learning.features.presentation.calendar.CalendarUI
+import java.time.LocalDate
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun MainScreen() {
     val navigationState = rememberNavigationState(
@@ -53,8 +59,11 @@ fun MainScreen() {
                     entry <MainScreenRoute.ChatScreen>{
                         Text("Chat")
                     }
+                    entry <MainScreenRoute.CallScreen>{
+                        Text("Calls")
+                    }
                     entry <MainScreenRoute.Calendar>{
-                        Text("Calendar")
+                        CalendarUI()
                     }
                     entry <MainScreenRoute.MoreScreen>{
                         MoreFeatureNavigation()
@@ -84,7 +93,7 @@ fun AppBottomBar(
                 },
                 icon = {
                     Icon(
-                        imageVector = bottomNavItem.icon,
+                        painter = bottomNavItem.icon(),
                         contentDescription = ""
                     )
                 },
@@ -96,6 +105,7 @@ fun AppBottomBar(
     }
 }
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Preview(showBackground = true)
 @Composable
 fun MainScreenPreview() {

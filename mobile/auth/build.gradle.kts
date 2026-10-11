@@ -1,6 +1,6 @@
 plugins {
-    alias(libs.plugins.android.application)
-    //alias(libs.plugins.android.library)
+//    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.compose)
     kotlin("plugin.serialization")
 }
@@ -14,7 +14,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.learning.auth"
+       // applicationId = "com.learning.auth"
         minSdk = 24
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
